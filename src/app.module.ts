@@ -2,27 +2,23 @@
 // @ts-nocheck
 import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import path, { join } from 'path';
+import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ChatGateway } from './chat.gateway';
 import { UsersModule } from './users/users.module';
 
-let dirname = '';
-
-try {
-  dirname = __dirname;
-} catch (ex) {
-  const __filename = fileURLToPath(import.meta.url);
-  dirname = path.dirname(__filename);
-}
+const __dirname__ =
+  typeof __dirname !== 'undefined'
+    ? __dirname
+    : dirname(fileURLToPath(import.meta.url));
 
 @Module({
   imports: [
     UsersModule,
     ServeStaticModule.forRoot({
-      rootPath: join(dirname, '..', 'client'),
+      rootPath: join(__dirname__, '..', 'client'),
       exclude: ['/api/(.*)'],
     }),
   ],
