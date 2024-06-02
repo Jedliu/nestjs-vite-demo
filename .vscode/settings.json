@@ -1,0 +1,8 @@
+{
+  "editor.formatOnSave": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "typescript.preferences.quoteStyle": "single",
+  "editor.tabSize": 2,
+  "editor.indentSize": "tabSize"
+}
